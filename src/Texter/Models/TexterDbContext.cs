@@ -16,7 +16,7 @@ namespace Texter.Models
         public virtual DbSet<Contact> Contacts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MrFixIt;integrated security=True");
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Wolfram;integrated security=True");
         }
 
         public TexterDbContext(DbContextOptions<TexterDbContext> options)

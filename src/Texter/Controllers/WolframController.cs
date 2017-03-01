@@ -13,19 +13,17 @@ namespace Texter.Controllers
 {
     public class WolframController : Controller
     {
-        
-
         public IActionResult Index()
         {
             return View();
         }
-      [HttpPost]
-        public async Task<ActionResult> Index(string question)
+
+        [HttpPost]
+        public IActionResult Index(string question)
         {
-            var wolframResultString = await WA.AskWolfram(question);
-                return View("Index", wolframResultString);
-            
+            var wolframResultString = WA.AskWolfram(question);
+            return View("Results", wolframResultString);
         }
-       
+
     }
 }

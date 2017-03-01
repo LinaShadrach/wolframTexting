@@ -11,7 +11,8 @@ using Newtonsoft.Json.Linq;
 using System.Xml;
 using System.IO;
 using System.Text;
-using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Texter.Models
 {
@@ -21,16 +22,54 @@ namespace Texter.Models
 
         public string Question { get; set; }
 
-        public async static Task<string> AskWolfram(string question)
+        public static Queryresult AskWolfram(string question)
         {
-            StringBuilder output = new StringBuilder();
-            using (var client = new HttpClient())
+            string pattern = "\\s+";
+            Regex rgx = new Regex(pattern);
+            string questionParsed = rgx.Replace(question, "+");
+            RestClient client = new RestClient("http://api.wolframalpha.com/v2/");
+            RestRequest request = new RestRequest("query?input="+ questionParsed +"&format=plaintext&output=XML&appid="+ EnvironmentVariables.WolframAPIKey);
+            RestResponse response = new RestResponse();
+            Task.Run(async () =>
             {
-                // Define your URL to call here
-                var uri = new Uri($"http://api.wolframalpha.com/v2/query?input={question}&appid={EnvironmentVariables.WolframAppId}");
-                // Get and output your response
-                var response = await client.GetAsync(uri);
-                string wolframResultString = await response.Content.ReadAsStringAsync();
+                response = await GetResponseContentAsync(client, request) as RestResponse;
+
+            }).Wait();
+            var XmlDS = new RestSharp.Deserializers.XmlDeserializer();
+            var responseCSharp = XmlDS.Deserialize<Queryresult>(response);
+            Debug.WriteLine("wolfram response:" + responseCSharp);
+            return (responseCSharp);
+        }
+        public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
+        {
+            TaskCompletionSource<IRestResponse> tcs = new TaskCompletionSource<IRestResponse>();
+            theClient.ExecuteAsync(theRequest, response =>
+            {
+                tcs.SetResult(response);
+            });
+            return tcs.Task;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //string wolframResultString = await response.Content.ReadAsStringAsync();
+
+            // Define your URL to call here
+            //var uri = new Uri($"http://api.wolframalpha.com/v2/query?input={question}&appid={EnvironmentVariables.WolframAPIKey}");
+            // Get and output your response
+
 
                 //using (XmlReader reader = XmlReader.Create(new StringReader(wolframResultString)))
                 //{
@@ -64,25 +103,4 @@ namespace Texter.Models
                 //    }
                 //}
 
-
-
-
-
-
-
-
-
-
-
                 //string stringer = output.ToString();
-                Console.WriteLine("wolfram response:" + wolframResultString);
-                return (wolframResultString);
-            }
-        }
-
-        private static Task<RestResponse> GetResponseContentAsync(RestClient client)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}

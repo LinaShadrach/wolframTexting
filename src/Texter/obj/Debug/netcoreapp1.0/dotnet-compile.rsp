@@ -1,5 +1,5 @@
---temp-output:c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\obj\Debug\netcoreapp1.0\
---out:c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\bin\Debug\netcoreapp1.0\Texter.dll
+--temp-output:C:\Users\epicodus\Desktop\wolframtexting\src\Texter\obj\Debug\netcoreapp1.0\
+--out:C:\Users\epicodus\Desktop\wolframtexting\src\Texter\bin\Debug\netcoreapp1.0\Texter.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -192,13 +192,14 @@
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XmlSerializer\4.0.11\ref\netstandard1.3\System.Xml.XmlSerializer.dll
 --reference:C:\Users\epicodus\.nuget\packages\WolframAlpha.Api.v2\1.0.1\lib\portable-net45+sl5+wp8+win8\WolframAlpha.Api.v2.dll
---resource:"c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\obj\Debug\netcoreapp1.0\Texterdotnet-compile.deps.json",Texter.deps.json
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Program.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Startup.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Controllers\HomeController.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Controllers\WolframController.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Models\Contact.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Models\EnviornmentVariables.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Models\Message.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Models\TexterDbContext.cs
-c:\Users\epicodus\documents\visual studio 2015\Projects\Texter\src\Texter\Models\WA.cs
+--resource:"C:\Users\epicodus\Desktop\wolframtexting\src\Texter\obj\Debug\netcoreapp1.0\Texterdotnet-compile.deps.json",Texter.deps.json
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Program.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Startup.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Controllers\HomeController.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Controllers\WolframController.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Models\Contact.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Models\EnvironmentVariables.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Models\Message.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Models\Queryresult.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Models\TexterDbContext.cs
+C:\Users\epicodus\Desktop\wolframtexting\src\Texter\Models\WA.cs
